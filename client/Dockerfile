@@ -1,19 +1,19 @@
-#smaller image of node
-FROM node:14-apline
+# Use a smaller image of node
+FROM node:14-alpine
 
-#working directory
+# Set the working directory inside the container
 WORKDIR /app/client
 
-#copy packages
-COPY package*.json /app/client/
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
 
-#install dependencies
+# Install the dependencies
 RUN npm install
 
-#copy the rest of the application
+# Copy the rest of the application
 COPY . .
 
-# Expose the port 
+# Expose the port
 EXPOSE 3000
 
 # Start the application
