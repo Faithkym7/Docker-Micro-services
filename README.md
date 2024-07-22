@@ -71,5 +71,8 @@ A named volume `mongo-data` is created to persist MongoDB data. This ensures tha
 - Created separate branches for each major change.
 - Made descriptive commits for each step.
 - Ensured a well-documented README file.
+- created the diffrerent dockerfile, on client and backend
+- created the images and pushed to my docker account
+- updated my readme
 
 
