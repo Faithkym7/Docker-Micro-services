@@ -1,33 +1,32 @@
-
 version: '3.8'
 
 services:
   frontend:
     build:
       context: ./client
-      dockerfile: Dockerfile.clients
+      dockerfile: Dockerfile.client  # Ensure this file is named correctly and exists in ./client
     ports:
       - "3000:3000"
     depends_on:
-      - backend
+      - backend  # Ensure backend service is available before frontend starts
 
   backend:
     build:
       context: ./backend
-      dockerfile: Dockerfile.backend
+      dockerfile: Dockerfile.backend  # Ensure this file is named correctly and exists in ./backend
     ports:
       - "5000:5000"
     depends_on:
-      - mongo
+      - mongo  # Ensure MongoDB service is available before backend starts
     environment:
-      MONGO_URI: mongodb+srv://Admin:Admin2024@cluster0.k07j8e3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      MONGO_URI: mmongodb+srv://Admin:Admin2024@cluster0.k07j8e3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0  # Adjust URI if using a local MongoDB instance
 
   mongo:
     image: mongo:latest
     ports:
       - "27017:27017"
     volumes:
-      - mongo-data:/data/db
+      - mongo-data:/data/db  # Persist MongoDB data
 
 volumes:
   mongo-data:
