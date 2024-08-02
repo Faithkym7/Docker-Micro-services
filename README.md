@@ -10,6 +10,24 @@ Make sure that you have the following installed:
 - npm 
 - [MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/) and start the mongodb service with `sudo service mongod start`
 - [Docker](https://docs.docker.com/engine/install/) is installed on your machine
+- [Vagrant](https://www.vagrantup.com/docs/installation) 
+- [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+- [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+
+## Clone the repository
+``ssh
+`git clone git@github.com:Faithkym7/Docker-Micro-services.git`
+
+`cd Docker-Micro-services`
+
+## start the Vagrant Machine
+`vagrant up`
+
+## SSH into the Vagrant Machine
+`vagrant ssh`
+
+## Navigate to the Project Directory and Run the Ansible Playbook
+`ansible-playbook playbook.yml -i hosts`
 
 ## Navigate to the Client Folder 
  `cd client`
