@@ -1,0 +1,36 @@
+- name: Install Docker
+  apt:
+    name: docker.io
+    state: present
+
+- name: Install Docker Compose
+  apt:
+    name: docker-compose
+    state: present
+
+- name: Clone frontend repo
+  git:
+    repo: "{{ frontend_repo }}"
+    dest: /var/www/frontend
+
+- name: Copy Docker Compose file for frontend
+  copy:
+    dest: /var/www/frontend/docker-compose.yml
+    content: |
+      version: '3.8'
+      services:
+        frontend:
+          build:
+            context: /var/www/frontend
+            dockerfile: Dockerfile.client
+          ports:
+            - "3000:3000"
+          depends_on:
+            - backend
+  notify:
+    - Restart Docker Compose
+
+- name: Start Docker Compose for frontend
+  command: docker-compose up -d
+  args:
+    chdir: /var/www/frontend
