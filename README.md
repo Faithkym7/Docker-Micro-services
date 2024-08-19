@@ -84,6 +84,8 @@ The application uses a custom bridge network created by Docker Compose. This all
 ## 4. Docker-Compose Volume Definition
 A named volume `mongo-data` is created to persist MongoDB data. This ensures that data added via the application is not lost when the containers are restarted.
 
+![docker](assets/docker.png)
+
 ## 5. Git Workflow
 - Forked and cloned the repository.
 - Created separate branches for each major change.
